@@ -23,7 +23,8 @@ fn main() {
     let (sign_, exp_, mant) = decode(sign, exp, frac);
     let n_ = from_parts(sign_, exp_, mant);
 
-    println!("{} -> {}", n, n_);
+    println!("original: {} -> final: {}", n, n_);
+    assert_eq!(n, n_);
     println!("field    |                 as bits | as real number");
     println!("sign     |                       {:01b} | {}", sign, sign_);
     println!("exponent |                {:08b} | {}", exp, exp_);
