@@ -62,7 +62,7 @@ fn decode(
     let signed_1 = (-1.0_f32).powf(sign as f32);
     // Exponent must first become an i32 in case subtracting 
     // the BIAS results in a negative number; then it needs 
-    // to be cast as a f32 for exponentiation.
+    // to be cast as f32 for exponentiation.
     let exp = (exp as i32) - BIAS;
     let exp = RADIX.powf(exp as f32);
     let mut mant: f32 = 1.0;
@@ -70,7 +70,7 @@ fn decode(
     // Iterate through fractional bits of the mantissa, adding 
     // those bit's defined values to the mantissa variable.
     for i in 0..23 {
-        // Creates a bit mask with the iteration number as then
+        // Creates a bit mask with the iteration number as the
         // bit allowed to pass through.
         let mask = 1 << i;
         let one_at_bit_i = frac & mask;
